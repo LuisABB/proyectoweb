@@ -1,43 +1,27 @@
 <?php
+session_start();
+    include "config.php";
+    include "funciones.php";
+    //en caso de error
+    ini_set('error_reporting', 0);
 
- $host_db = "localhost";
- $user_db = "root";
- $pass_db = "";
- $db_name = "basegacetadigital";
- $tbl_name = "medios";
+if($_POST['register_btn']){
+        $usuario =  $_POST['user_mail'];
+        $contrasena = $_POST['contrasena'];
+        $type = "medios";
+
+        $c = mysqli_num_rows(mysqli_query($connect,"SELECT * FROM medios WHERE Correo = '$usuario'"));
+        if($c == 1){
+            echo '<center><h1>El correo electronico ya esta registrado</h1></center>';
+            echo '<meta http-equiv="refresh" content="1; url=medios-regis.php" />';
+        }else{
+            $r = mysqli_query($connect,"INSERT INTO medios (Nombre_Autor, Contrasena, Correo, Tipo) values ('$_POST[usuario_nombre]','$contrasena','$usuario', '$type')");
+            if ($r){
+            	//echo "El alumno $usuario se ha registrado con exito";
+            	echo '<center><h1>El correo '.$usuario.'se ha registrado correctamente como medio de comunicación</h1></center>';
+            	echo '<meta http-equiv="refresh" content="1; url=iniciar-sesion.php" />'; 
+            }
+        }
+    }
  
- $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
-
- if ($conexion->connect_error) {
- die("La conexion falló: " . $conexion->connect_error);
-}
-
- $buscarUsuario = "SELECT * FROM $tbl_name WHERE No_Boleta = '$_POST[NoBoleta]' ";
-
- $result = $conexion->query($buscarUsuario);
-
- $count = mysqli_num_rows($result);
-
- if ($count == 1) {
- echo "<br />". "La boleta ya se ha registrado." . "<br />";
- }
- else{
- 
- //$hash = password_hash($form_pass, PASSWORD_BCRYPT); ENCRIPTAR CONTRASENA
-
- $query = "INSERT INTO usuario (No_Boleta,Nombre_Usuario,Correo,Contrasena,Apellido)
-           VALUES ('$_POST[NoBoleta]', '$_POST[usuario_nombre]', '$_POST[user_mail]', '$_POST[contrasena]', '$_POST[usuario_apellido]')";
-
- if ($conexion->query($query) === TRUE) {
- 
- echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
- echo "<h4>" . "Bienvenido: " . $_POST['username'] . "</h4>" . "\n\n";
- echo "<h5>" . "Hacer Login: " . "<a href='principal.html'>Login</a>" . "</h5>"; 
- }
-
- else {
- echo "Error al crear el usuario." . $query . "<br>" . $conexion->error; 
-   }
- }
- mysqli_close($conexion);
 ?>

@@ -1,3 +1,8 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
 body{
     margin: 0;
 	background: #99084A;
@@ -12,8 +17,7 @@ body{
 
 .menu{
     background-color:black;
-    height:60px;
-    padding:0px;
+    padding:15px;
 }
 
 .logo-nav-container{
@@ -23,10 +27,6 @@ body{
 
 .letras{
     font-size: 25px;
-    font-weight: 400;
-    line-height: 60px;
-    text-decoration:none; 
-    outline:0;
     color:white;
     font-family:GreatVibes;
     /*Manejas el logo*/
@@ -64,7 +64,6 @@ body{
 .todo{
     padding:40px;
     background-color:transparent;
-    
     height:1133.5px;
    
 }
@@ -73,7 +72,7 @@ body{
     background-color:white;
     float:left;
     width:593px;
-    height:auto;
+    height:100%;
     padding:15px;
     text-align: center;
 }
@@ -82,19 +81,19 @@ body{
     background-color:#D1D1D1;
     float:right;
     width:593px;
-    height:auto;
+    height:100%;
     padding:15px;
     text-align: center;
 }
 
 .uno{
     width: 593px; 
-    height: 199px;
+    height: auto;
 }
 
 .dos{
     width: 135px; 
-    height: 202.4px;
+    height: 215px;
     padding:5px;
 }
 
@@ -127,16 +126,6 @@ a{
    
 }
 
-/*escom*/
-.portada{
-    height:250px;
-    width:100%;
-}
-
-h1{
-    text-align:center;
-}
-
 .contenido{
     padding:5px;
     height: auto;
@@ -149,4 +138,33 @@ h1{
     background-color:white;
     padding:15px;
     width:593px;
+}
+
+li{
+    display: block;
+}
+
+.boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+  }
+
+.comm{
+    padding: 20px;
+}
+
+/*estilos de cada noticia*/
+.portada{
+    height:250px;
+    width:100%;
+}
+
+h1{
+    text-align:center;
 }

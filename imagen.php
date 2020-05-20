@@ -20,11 +20,11 @@
 	$ruta=$_FILES["img"]["tmp_name"];
 	$destino="imagenes/".$imagenes;
 	copy($ruta, $destino);
-	$query = "INSERT INTO post (title,image,Contenido,,institucion,URL) 
-						VALUES ('$titulo','$ruta','$TEXTO','$escuela','$URL')";
+	$query = "INSERT INTO post (title,image,Contenido,institucion,URL) 
+						VALUES ('$titulo','$destino','$TEXTO','$escuela','$URL')";
 	if ($conexion->query($query) === TRUE) {
- 
- echo "<br />" . "<h2>" . "FOTO AGREGADA!" . "</h2>";
+ 	echo '<center><h1>¡NOTICIA AGREGADA!</h1></center>';
+                echo '<meta http-equiv="refresh" content="1; url=principal.php" />';
  }
 
 
