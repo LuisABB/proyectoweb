@@ -47,26 +47,26 @@ ini_set('error reporting', 0);
           <p class=titulo-form>"Usuario"</p> 
   
             <p id="Nombre">Nombre:
-                <input type="text" REQUIRED id="Nombre-usuario" name="usuario_nombre"  size="51" >
+                <input type="text" REQUIRED id="Nombre-usuario" name="usuario_nombre"  size="51" pattern="[a-zA-Z]*" minlength="4" maxlength="15">
             </p>
     
     
             <p id="Apellido">Apellido:
-                <input type="text" REQUIRED id="Apellido-usario" name="usuario_apellido"  size="51" >
+                <input type="text" REQUIRED id="Apellido-usario" name="usuario_apellido"  size="51" pattern="[a-zA-Z]*" minlength="4" maxlength="15">
             </p>
     
    
             <p id="NoBoleta">No.Boleta: 
-                <input type="text" REQUIRED id="No-Boleta" name="NoBoleta" size="49"  > 
+                <input type="text" REQUIRED id="No-Boleta" name="NoBoleta" size="49" pattern="[0-9]*" minlength="10" maxlength="10"> 
             </p>
     
  
             <p id="mail">Correo electrónico:
-                <input type="text" REQUIRED id="mail-usuario" name="user_mail" size="40"  >
+                <input type="text" REQUIRED id="mail-usuario" name="user_mail" size="40" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
             </p>
     
             <p id="contrasena">Contraseña:
-                <input type="password" REQUIRED id="contrasena-usuario" name="contrasena" size="48"  >
+                <input type="password" REQUIRED id="contrasena-usuario" name="contrasena" size="48" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){10,20}$" minlength="10" maxlength="20">
             </p>
     
             <input class="btn-aceptar" REQUIRED type="submit" value="Aceptar" name="register_btn" />

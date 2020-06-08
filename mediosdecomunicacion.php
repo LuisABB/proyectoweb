@@ -70,18 +70,18 @@ if ($_SESSION['user'] != "medios"){
 					    <br>
 					    <br>
 					    <label for="Title">Titulo</label> <br>
-					    <input type="text" id="title" name="title">
+					    <input type="text" REQUIRED id="title" name="title">
 					    <br>
 					    <br>
 					    <label for="url">URL</label> <br>
-					    <input type="text" id="url" name="url" >
+					    <input type="text" REQUIRED id="url" name="url" >
 					  <br>
 					  <br>
 					   <label for="img">Selecciona Imagen:</label>
-  						<input type="file" id="img" name="img" accept="image/*">
+  						<input type="file" REQUIRED id="img" name="img" accept="image/*">
 					  <br>
 					  <br>
-					  <textarea cols="50" rows="5" name="texto">Texto introductorio...</textarea>
+					  <textarea cols="50" rows="5" name="texto" REQUIRED>Texto introductorio...</textarea>
 					  <br>
 					  <br>
 					    <input class="boton" type="submit" value="Enviar">

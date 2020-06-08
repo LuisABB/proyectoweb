@@ -64,13 +64,8 @@ ini_set('error reporting', 0);
                 <?php
                     // Extraemos el nombre y el email del registro con id = 3
                     $id = "ENBA";
-                    $host_db = "localhost";
-                    $user_db = "root";
-                    $pass_db = "";
-                    $db_name = "basegacetadigital";
-                    $tbl_name = "post";
-                    $conn = mysqli_connect($host_db, $user_db, $pass_db, $db_name);
-                    $query_tb = mysqli_query($conn,"SELECT * from post where institucion ='$id'");
+                    $connect = mysqli_connect($host, $dbuser, $dbpwd, $db);
+                    $query_tb = mysqli_query($connect,"SELECT * from post where institucion ='$id'");
                     while($res= mysqli_fetch_array($query_tb)){
                         echo '<a href="'.$res["URL"].'"> <img class="uno" src="'.$res["image"].'"  alt="'.$res["id_post"].'"></a>';
 

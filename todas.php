@@ -62,18 +62,17 @@ ini_set('error reporting', 0);
         <div class="contenido">
             <div class="news">
                 <?php
-                    $host_db = "localhost";
-                    $user_db = "root";
-                    $pass_db = "";
-                    $db_name = "basegacetadigital";
-                    $tbl_name = "post";
-     
-                    $conn = mysqli_connect($host_db, $user_db, $pass_db, $db_name);
-                    $sql = mysqli_query($conn,"select * from post");
+                	//SELECT * FROM post WHERE created_at = "2020-05-16 06:02:36"
+                    $connect = mysqli_connect($host, $dbuser, $dbpwd, $db);
+                    $fechai = date("Y")."-".date("m")."-"."1";
+                    $fechaf = date("Y")."-".date("m")."-"."31";
+                    //echo $fechai;
+                    //echo $fechaf;
+                    $sql = mysqli_query($connect,"SELECT * FROM post WHERE created_at BETWEEN '$fechai' AND '$fechaf'");
                     while($res= mysqli_fetch_array($sql)){
                     
                         echo '<a href="'.$res["URL"].'"> <img class="uno" src="'.$res["image"].'"  alt="'.$res["id_post"].'"></a>';
-
+                    	//echo '<h2>'.$res["created_at"].'</h2>';
                         echo '<h2>'.$res["title"].'</h2>';
                         echo '<p>'.$res["Contenido"].'</p>';
                 }

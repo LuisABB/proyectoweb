@@ -1,15 +1,9 @@
 <?php
-	
-	$host_db = "localhost";
- 	$user_db = "root";
- 	$pass_db = "";
- 	$db_name = "basegacetadigital";
- 	$tbl_name = "post";
- 
- 	$conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
+	include "config.php";
+    include "funciones.php";
 
- 	if ($conexion->connect_error) {
- 	die("La conexion falló: " . $conexion->connect_error);
+ 	if ($connect->connect_error) {
+ 	die("La conexion falló: " . $connect->connect_error);
 	}
 
 	$escuela = $_REQUEST["institucion"];
@@ -22,9 +16,9 @@
 	copy($ruta, $destino);
 	$query = "INSERT INTO post (title,image,Contenido,institucion,URL) 
 						VALUES ('$titulo','$destino','$TEXTO','$escuela','$URL')";
-	if ($conexion->query($query) === TRUE) {
+	if ($connect->query($query) === TRUE) {
  	echo '<center><h1>¡NOTICIA AGREGADA!</h1></center>';
-                echo '<meta http-equiv="refresh" content="1; url=principal.php" />';
+                echo '<meta http-equiv="refresh" content="3; url=principal.php" />';
  }
 
 

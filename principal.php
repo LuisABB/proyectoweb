@@ -62,14 +62,8 @@ ini_set('error reporting', 0);
         <div class="todo">
                 <div class="news">
                     <?php
-                        $host_db = "localhost";
-                        $user_db = "root";
-                        $pass_db = "";
-                        $db_name = "basegacetadigital";
-                        $tbl_name = "post";
-         
-                        $conn = mysqli_connect($host_db, $user_db, $pass_db, $db_name);
-                        $result = mysqli_query($conn,'SELECT id_post, title, image, Contenido, URL FROM post ORDER BY id_post DESC 
+                        $connect = mysqli_connect($host, $dbuser, $dbpwd, $db);
+                        $result = mysqli_query($connect,'SELECT id_post, title, image, Contenido, URL FROM post ORDER BY id_post DESC 
                         LIMIT 3') or die('Invalid query: ' . mysql_error());
 
                         //imprimir valores a la pantalla
